@@ -1,0 +1,21 @@
+SELECT * FROM `second-conquest-403514.de_course.customer_purchases` LIMIT 1000
+
+select * from `second-conquest-403514.de_course.customer_purchases` LIMIT 10;
+
+
+select * from `second-conquest-403514.de_course.customer_purchases` order by quantity DESC LIMIT 10;
+
+select market_date, customer_id, vendor_id, quantity, cost_to_customer_per_qty, ROUND(quantity * cost_to_customer_per_qty, 2) as total_amt
+from `second-conquest-403514.de_course.customer_purchases`;
+
+select market_date, customer_id, product_id, vendor_id, ROUND(cost_to_customer_per_qty * quantity) as total_amt from de_course.customer_purchases;
+
+select customer_id, CONCAT(customer_first_name, " ", customer_last_name) as customer_full_name from de_course.customer LIMIT 10;
+
+select customer_id, customer_first_name, UPPER(customer_last_name) from de_course.customer;
+
+
+select 
+CONCAT(LOWER(SUBSTR(customer_first_name, 1, 1)),UPPER(SUBSTR(customer_first_name,2))) as cust_first_name, 
+CONCAT(LOWER(SUBSTR(customer_last_name, 1, 1)),UPPER(SUBSTR(customer_last_name,2))) as cust_last_name 
+from de_course.customer;
